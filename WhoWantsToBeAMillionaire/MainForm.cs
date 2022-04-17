@@ -21,7 +21,15 @@
 
         private void ReadFile()
         {
-            string path = @"Вопросы.txt";
+
+            string[] start = (Application.StartupPath).Split('\\');
+            string path = "";
+            for (int i = 0; i < 7; i++)
+            {
+                path += start[i];
+                path += "\\";
+            }
+            path += "Resources\\Вопросы.txt";
 
             using (StreamReader sr = new StreamReader(path))
             {
