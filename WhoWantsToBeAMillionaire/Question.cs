@@ -29,13 +29,28 @@ namespace WhoWantsToBeAMillionaire
             level = int.Parse(s[6]);
             using (var db = new QuestionContex())
             {
-                db.questions.Add(this);
-                db.SaveChanges();
+                try
+                {
+                    db.questions.Add(this);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    
+                }
             }
         }
 
         public Question()
         { }
+
+        public static List<Question> download(int lvl)
+        {
+            using (var db = new QuestionContex())
+            {
+                return db.questions.Where(x => x.level == lvl).ToList();
+            }
+        }
     }
 
     class QuestionContex: DbContext
@@ -46,7 +61,7 @@ namespace WhoWantsToBeAMillionaire
 
         public QuestionContex(): base()
         {
-            DbPath = @"C:\Users\Bogdan\howwants.db";
+            DbPath = MainForm.GetPath();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite($"Data Source={DbPath}");

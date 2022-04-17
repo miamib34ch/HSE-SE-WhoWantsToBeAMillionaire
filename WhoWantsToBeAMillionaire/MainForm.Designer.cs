@@ -196,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 557);
+            this.ClientSize = new System.Drawing.Size(669, 557);
             this.Controls.Add(this.btnRightToFail);
             this.Controls.Add(this.btnHallHelp);
             this.Controls.Add(this.btnChangeQuestion);
@@ -213,6 +213,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Игра \"Кто хочет стать миллионером\"";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

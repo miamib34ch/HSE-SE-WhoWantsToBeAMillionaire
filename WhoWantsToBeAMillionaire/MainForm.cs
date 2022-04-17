@@ -3,7 +3,6 @@
     public partial class MainForm : Form
     {
 
-        List<Question> questions = new List<Question>();
         private Random rnd = new Random();
         int level = 0;
         Question currentQuestion;
@@ -28,7 +27,7 @@
                 int id = 1;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    questions.Add(new Question(line.Split('\t'), id));
+                    new Question(line.Split('\t'), id);
                     id++;
                 }
             }
@@ -45,7 +44,7 @@
 
         private Question GetQuestion(int level)
         {
-            var questionsWithLevel = questions.Where(q => q.level == level).ToList();
+            var questionsWithLevel = Question.download(level);
             return questionsWithLevel[rnd.Next(questionsWithLevel.Count)];
         }
 
@@ -90,6 +89,19 @@
             foreach (string s in mas)
                 res += s;
             return res;
+        }
+
+        public static string GetPath()
+        {
+            string[] start = (Application.StartupPath).Split('\\');
+            string path = "";
+            for ( int i = 0; i <7; i++) 
+            {
+                path += start[i];
+                path += "\\";
+            }
+            path += "Resources\\whoWantsDb.db";
+            return path;
         }
 
         #region Кнопки ответов
