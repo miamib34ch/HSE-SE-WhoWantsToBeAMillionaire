@@ -46,9 +46,9 @@
             // btnAnswerA
             // 
             this.btnAnswerA.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAnswerA.Location = new System.Drawing.Point(28, 410);
+            this.btnAnswerA.Location = new System.Drawing.Point(28, 420);
             this.btnAnswerA.Name = "btnAnswerA";
-            this.btnAnswerA.Size = new System.Drawing.Size(221, 59);
+            this.btnAnswerA.Size = new System.Drawing.Size(227, 59);
             this.btnAnswerA.TabIndex = 0;
             this.btnAnswerA.Tag = "1";
             this.btnAnswerA.Text = "A";
@@ -58,9 +58,9 @@
             // btnAnswerB
             // 
             this.btnAnswerB.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAnswerB.Location = new System.Drawing.Point(28, 482);
+            this.btnAnswerB.Location = new System.Drawing.Point(28, 485);
             this.btnAnswerB.Name = "btnAnswerB";
-            this.btnAnswerB.Size = new System.Drawing.Size(221, 59);
+            this.btnAnswerB.Size = new System.Drawing.Size(227, 59);
             this.btnAnswerB.TabIndex = 1;
             this.btnAnswerB.Tag = "2";
             this.btnAnswerB.Text = "B";
@@ -70,9 +70,9 @@
             // btnAnswerC
             // 
             this.btnAnswerC.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAnswerC.Location = new System.Drawing.Point(255, 410);
+            this.btnAnswerC.Location = new System.Drawing.Point(258, 420);
             this.btnAnswerC.Name = "btnAnswerC";
-            this.btnAnswerC.Size = new System.Drawing.Size(221, 59);
+            this.btnAnswerC.Size = new System.Drawing.Size(227, 59);
             this.btnAnswerC.TabIndex = 2;
             this.btnAnswerC.Tag = "3";
             this.btnAnswerC.Text = "C";
@@ -82,9 +82,9 @@
             // btnAnswerD
             // 
             this.btnAnswerD.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAnswerD.Location = new System.Drawing.Point(255, 482);
+            this.btnAnswerD.Location = new System.Drawing.Point(258, 485);
             this.btnAnswerD.Name = "btnAnswerD";
-            this.btnAnswerD.Size = new System.Drawing.Size(221, 59);
+            this.btnAnswerD.Size = new System.Drawing.Size(227, 59);
             this.btnAnswerD.TabIndex = 3;
             this.btnAnswerD.Tag = "4";
             this.btnAnswerD.Text = "D";
@@ -106,7 +106,7 @@
             this.lblQuestion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblQuestion.Location = new System.Drawing.Point(28, 335);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(448, 62);
+            this.lblQuestion.Size = new System.Drawing.Size(457, 78);
             this.lblQuestion.TabIndex = 5;
             this.lblQuestion.Text = "label1";
             // 
