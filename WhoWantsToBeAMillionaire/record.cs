@@ -7,23 +7,21 @@ using System.Threading.Tasks;
 
 namespace WhoWantsToBeAMillionaire
 {
-    public class record
+    public class Record
     {
         public int id { get; private set; }
         public string name { get; private set; }
         public int score { get; private set; }
 
-        record()
-        {
+        Record() { }
 
-        }
-
-        public record(int id, string name, int score)
+        public Record(int id, string name, int score)
         {
             this.id = id;
             this.name = name;
             this.score = score;
-            using (var db = new recordContex())
+
+            using (var db = new RecordContex())
             {
                 try
                 {
@@ -32,34 +30,41 @@ namespace WhoWantsToBeAMillionaire
                 }
                 catch
                 {
-                    db.record.Update(this);
-                    db.SaveChanges();
                 }
             }
         }
 
-        public static List<record> download()
+        public static List<Record> sortByScore()
         {
-            using (var db = new recordContex())
+            using (var db = new RecordContex())
             {
-                return db.record.Where(x=> x.id < 11).ToList();
+                return db.record.OrderByDescending(x=>x.score).ToList();
             }
         }
 
         public override string ToString()
         {
-            return $"{id}. {name} {score}"; 
+            return $"{name} {score}"; 
         }
 
+        public static void deleteAll()
+        {
+            using (var db = new RecordContex())
+            {
+                foreach (var rcrd in db.record)
+                    db.record.Remove(rcrd);
+                db.SaveChanges();
+            }
+        }
     }
 
-    class recordContex : DbContext
+    class RecordContex : DbContext
     {
-        public DbSet<record> record { get; private set; }
+        public DbSet<Record> record { get; private set; }
 
         public string DbPath { get; }
 
-        public recordContex() : base()
+        public RecordContex() : base()
         {
             DbPath = MainForm.GetPath();
         }

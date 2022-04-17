@@ -13,6 +13,8 @@
         public MainForm()
         {
             InitializeComponent();
+            Question.deleteAll();
+            //Record.deleteAll();
             ReadFile();
             startGame();
         }
@@ -44,7 +46,7 @@
 
         private Question GetQuestion(int level)
         {
-            var questionsWithLevel = Question.download(level);
+            var questionsWithLevel = Question.downloadByLevel(level);
             return questionsWithLevel[rnd.Next(questionsWithLevel.Count)];
         }
 
@@ -77,9 +79,9 @@
             NextStep();
         }
 
-        private void Record(int prize)
+        private void RecordWindowOpen(int prize)
         {
-            Victorie vic = new Victorie(prize);
+            RecordWindow vic = new RecordWindow(prize);
             vic.ShowDialog();
         }
 
@@ -115,7 +117,7 @@
                 {
                     if (level == 15)
                     {
-                        Record(3000000);
+                        RecordWindowOpen(3000000);
                         startGame();
                     }
                     else
@@ -125,9 +127,9 @@
                 {
                     MessageBox.Show("Неверный ответ!");
                     if (int.Parse(Conc(lstLevel.SelectedItem.ToString().Split(" "))) > int.Parse(Conc(SaveMoney.select.Split(" "))))
-                        Record(int.Parse(Conc(SaveMoney.select.Split(" "))));
+                        RecordWindowOpen(int.Parse(Conc(SaveMoney.select.Split(" "))));
                     else
-                        Record(0);
+                        RecordWindowOpen(0);
                     startGame();
                 }
             }
@@ -137,7 +139,7 @@
                 {
                     if (level == 15)
                     {
-                        Record(3000000);
+                        RecordWindowOpen(3000000);
                         startGame();
                     }
                     else

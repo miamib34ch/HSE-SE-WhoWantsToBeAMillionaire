@@ -17,6 +17,9 @@ namespace WhoWantsToBeAMillionaire
         public string answerD { get; private set; }
         public int rightAnswer { get; private set; }
         public int level { get; private set; }
+
+        Question() { }
+
         public Question(string[] s, int id)
         {
             this.id = id;
@@ -27,6 +30,7 @@ namespace WhoWantsToBeAMillionaire
             answerD = s[4];
             rightAnswer = int.Parse(s[5]);
             level = int.Parse(s[6]);
+
             using (var db = new QuestionContex())
             {
                 try
@@ -36,19 +40,25 @@ namespace WhoWantsToBeAMillionaire
                 }
                 catch
                 {
-                    
                 }
             }
         }
 
-        public Question()
-        { }
-
-        public static List<Question> download(int lvl)
+        public static List<Question> downloadByLevel(int lvl)
         {
             using (var db = new QuestionContex())
             {
                 return db.questions.Where(x => x.level == lvl).ToList();
+            }
+        }
+
+        public static void deleteAll()
+        {
+            using (var db = new QuestionContex())
+            {
+                foreach (var qst in db.questions)
+                    db.questions.Remove(qst);
+                db.SaveChanges();
             }
         }
     }
